@@ -61,4 +61,18 @@ describe "the review management path" do
     expect(page).to have_content("This is an example review text.")
   end
 
+  it "displays errors if new review cannot be saved" do
+    visit product_path(@product)
+    click_button "Save"
+    expect(page).to have_content("Something went wrong")
+  end
+
+  it "displays errors if review edits cannot be saved" do
+    review = FactoryBot.create(:review, user: @user, product: @product)
+    visit product_path(@product)
+    click_on "Edit"
+    fill_in "Comments", with: ""
+    click_button "Save"
+    expect(page).to have_content("Something went wrong")
+  end
 end
