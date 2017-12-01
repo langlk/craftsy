@@ -16,6 +16,17 @@
 
 <div class="featured">
   <h2 class="sub-header"><%= link_to "Crafts", products_path %></h2>
+  <div class="featured-list">
+    <% if @products.any? %>
+      <% @products.each do |product| %>
+        <div class="product-feature">
+          <h4><%= link_to product.name, product_path(product) %></h4>
+        </div>
+      <% end %>
+    <% else %>
+      <p>There are no products. Please check back soon!</p>
+    <% end %>
+  </div>
 </div>
 
 
