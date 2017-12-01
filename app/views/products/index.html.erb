@@ -9,6 +9,7 @@
     <% @products.each do |product| %>
       <div class="product panel panel-default">
         <div class="panel-body">
+          <%= image_tag(product.image.url(:thumb)) %>
           <h3><%= link_to product.name, product_path(product) %></h3>
         </div>
       </div>
