@@ -37,6 +37,7 @@ h1, .navbar-header, .sub-header {
   background-position: center;
   background-size: cover;
   border: 15px solid rgba(56, 86, 121, 0.2);
+  border-radius: 4px;
   min-height: 40vh;
   display: flex;
   justify-content: center;
@@ -49,6 +50,21 @@ h1, .navbar-header, .sub-header {
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
+}
+
+.featured-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.featured-list .panel-default {
+  width: 28%;
+  min-width: 200px;
+}
+
+.featured-list img {
+  max-width: 100%;
 }
 
 .about {
