@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
 
+  def authenticate_admin!
+    unless current_user && current_user.admin?
+      flash[:alert] = "You aren't authorized to do that."
+      redirect_to root_path
+    end
+  end
 
   protected
 
