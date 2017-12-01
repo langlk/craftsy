@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :reviews
   validates_presence_of :name
   validates_uniqueness_of :name
   # Include default devise modules. Others available are:
