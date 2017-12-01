@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @product = Product.find(params[:product_id])
+    @reviews = @product.reviews
     @review = @product.reviews.find(params[:id])
     authorize_edit!(@review)
     render template: "products/show"
@@ -22,6 +23,7 @@ class ReviewsController < ApplicationController
 
   def update
     @product = Product.find(params[:product_id])
+    @reviews = @product.reviews
     @review = @product.reviews.find(params[:id])
     authorize_edit!(@review)
     if @review.update(review_params)
@@ -39,7 +41,7 @@ class ReviewsController < ApplicationController
     authorize_delete!(@review)
     @review.destroy
     flash[:notice] = "Review deleted successfully."
-    redirect_to product_path(product)
+    redirect_to product_path(@product)
   end
 
 private

@@ -13,3 +13,9 @@
         } %>
   </h5>
 <% end %>
+
+<%= render 'reviews/index' %>
+
+<% if current_user && @review.id == nil %>
+  <%= render 'reviews/form' %>
+<% end %>

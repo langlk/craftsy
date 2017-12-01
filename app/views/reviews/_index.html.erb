@@ -1,0 +1,39 @@
+<h2>Reviews</h2>
+
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    <% if review.id %>
+      <% if review == @review %>
+        <h4>Edit Review</h4>
+        <%= render 'form' %>
+      <% else %>
+        <div class="review panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title"><%= review.user.name %></h4>
+            <span><%= review.rating %> of 5</span>
+          </div>
+
+          <div class="panel-body">
+            <p><%= review.comments %></p>
+          </div>
+
+          <% if authorize_edit?(review) | authorize_delete?(review) %>
+            <div class="panel-footer">
+              <% if authorize_edit?(review) %>
+                <%= link_to "Edit", edit_product_review_path(@product, review) %> |
+              <% end %>
+              <% if authorize_delete?(review) %>
+                <%= link_to "Delete", product_review_path(@product, review), data: {
+                    confirm: "This will permanently delete this review. Are you sure?",
+                    method: "delete"
+                    } %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <h4>No saved reviews.</h4>
+<% end %>
