@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review created successfully."
       redirect_to product_path(@product)
     else
-      flash[:alert] = @reivew.errors.full_messages
+      flash[:alert] = @review.errors.full_messages
       render template: "products/show"
     end
   end
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review updated successfully."
       redirect_to product_path(@product)
     else
-      flash[:alert] = @reivew.errors.full_messages
+      flash[:alert] = @review.errors.full_messages
       render template: "products/show"
     end
   end

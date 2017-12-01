@@ -13,13 +13,6 @@
       <div class="container-fluid">
         <div class="navbar-header">
            <%= link_to "Craftsy", root_path, class: "navbar-brand" %>
-           <% if current_user %>
-            <% if current_user.admin? %>
-              <ul class="nav navbar-nav navbar-left">
-                <li> <%= link_to "Admin", '/admin' %> </li>
-              </ul>
-            <% end %>
-           <% end %>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
@@ -42,7 +35,16 @@
 
       <% if flash[:alert] != nil %>
         <div class="alert alert-danger">
-          <%= flash[:alert] %>
+          <% if flash[:alert].class == Array %>
+            <p><strong>Something went wrong!</strong></p>
+            <ul>
+              <% flash[:alert].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <%= flash[:alert] %>
+          <% end %>
         </div>
       <% end %>
       <div class="page-header">
