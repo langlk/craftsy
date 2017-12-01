@@ -43,6 +43,12 @@ describe "the review management path" do
     expect(page).to have_no_content("This is an example review text.")
   end
 
+  it "does not allow unauthenticated users to add a review" do
+    click_on "Sign Out"
+    visit product_path(@product)
+    expect(page).to have_no_content("Add a Review")
+  end
+
   it "does not allow users to edit other users' reviews" do
     visit edit_product_review_path(@product, @review)
     expect(page).to have_content("You aren't authorized to do that.")

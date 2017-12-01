@@ -17,5 +17,6 @@
 <%= render 'reviews/index' %>
 
 <% if current_user && @review.id == nil %>
+  <h4>Add a Review</h4>
   <%= render 'reviews/form' %>
 <% end %>
