@@ -1,21 +1,27 @@
 <% content_for :page_header, @product.name %>
 
-<div class="product-image">
-  <%= image_tag(@product.image.url(:medium)) %>
+<div class="product-show">
+  <% if @product.image %>
+    <div class="product-image">
+      <%= image_tag(@product.image.url(:medium)) %>
+    </div>
+  <% end %>
+  <div class="product-details">
+    <p class="description"><%= @product.description %></p>
+    <h3>Price: $<%= @product.price %></h3>
+    <% if current_user && current_user.admin? %>
+      <h5 class="product-options">
+        <%= link_to "Edit Craft", edit_product_path(@product) %> |
+        <%= link_to "Delete Craft", product_path(@product), data: {
+            confirm: "This will permanently delete this craft. Are you sure?",
+            method: "delete"
+            } %>
+      </h5>
+    <% end %>
+  </div>
 </div>
 
-<p><%= @product.description %></p>
-<h3>Price: $<%= @product.price %></h3>
 
-<% if current_user && current_user.admin? %>
-  <h5 class="product-options">
-    <%= link_to "Edit Craft", edit_product_path(@product) %> |
-    <%= link_to "Delete Craft", product_path(@product), data: {
-        confirm: "This will permanently delete this craft. Are you sure?",
-        method: "delete"
-        } %>
-  </h5>
-<% end %>
 
 <%= render 'reviews/index' %>
 

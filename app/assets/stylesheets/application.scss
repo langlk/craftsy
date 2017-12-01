@@ -55,3 +55,17 @@ h1, .navbar-header, .sub-header {
 .actions a {
   margin-left: .5em;
 }
+
+.product-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.product-image {
+  max-height: 500px;
+}
+
+.product-image img {
+  height: 100%;
+}
