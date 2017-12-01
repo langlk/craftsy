@@ -60,4 +60,12 @@ describe "the product management path" do
     expect(page).to have_no_content("Edit Craft")
     expect(page).to have_content("You aren't authorized to do that.")
   end
+
+  it "does not allow a non-admin to delete products" do
+    product = FactoryBot.create(:product)
+    Capybara.current_session.driver.submit :delete, product_path(product), nil
+    expect(page).to have_content("You aren't authorized to do that.")
+    visit products_path
+    expect(page).to have_content("Test Product")
+  end
 end
