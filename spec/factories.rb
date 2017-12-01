@@ -11,4 +11,11 @@ FactoryBot.define do
     description("An example craft for Craftsy.")
     price(10)
   end
+
+  factory(:review) do
+    user
+    product
+    rating(4)
+    comments("This is an example review text.")
+  end
 end

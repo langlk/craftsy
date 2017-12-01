@@ -17,31 +17,34 @@ class ReviewsController < ApplicationController
     @product = Product.find(params[:product_id])
     @reviews = @product.reviews
     @review = @product.reviews.find(params[:id])
-    authorize_edit!(@review)
-    render template: "products/show"
+    if authorize_edit!(@review)
+      render template: "products/show"
+    end
   end
 
   def update
     @product = Product.find(params[:product_id])
     @reviews = @product.reviews
     @review = @product.reviews.find(params[:id])
-    authorize_edit!(@review)
-    if @review.update(review_params)
-      flash[:notice] = "Review updated successfully."
-      redirect_to product_path(@product)
-    else
-      flash[:alert] = @review.errors.full_messages
-      render template: "products/show"
+    if authorize_edit!(@review)
+      if @review.update(review_params)
+        flash[:notice] = "Review updated successfully."
+        redirect_to product_path(@product)
+      else
+        flash[:alert] = @review.errors.full_messages
+        render template: "products/show"
+      end
     end
   end
 
   def destroy
     @product = Product.find(params[:product_id])
     @review = @product.reviews.find(params[:id])
-    authorize_delete!(@review)
-    @review.destroy
-    flash[:notice] = "Review deleted successfully."
-    redirect_to product_path(@product)
+    if authorize_delete!(@review)
+      @review.destroy
+      flash[:notice] = "Review deleted successfully."
+      redirect_to product_path(@product)
+    end
   end
 
 private
@@ -53,6 +56,9 @@ private
     unless current_user && ((review.user == current_user) || current_user.admin?)
       flash[:alert] = "You aren't authorized to do that."
       redirect_to product_path(review.product)
+      return false
+    else
+      return true
     end
   end
 
@@ -60,6 +66,9 @@ private
     unless current_user && (review.user == current_user)
       flash[:alert] = "You aren't authorized to do that."
       redirect_to product_path(review.product)
+      return false
+    else
+      return true
     end
   end
 end
