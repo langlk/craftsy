@@ -68,4 +68,20 @@ describe "the product management path" do
     visit products_path
     expect(page).to have_content("Test Product")
   end
+
+  it "displays errors if a new product cannot be saved" do
+    @user.update(admin: true)
+    visit new_product_path
+    click_button "Save"
+    expect(page).to have_content("Something went wrong")
+  end
+
+  it "displays errors if a product's edits cannot be saved" do
+    @user.update(admin: true)
+    product = FactoryBot.create(:product)
+    visit edit_product_path(product)
+    fill_in "Name", with: ""
+    click_button "Save"
+    expect(page).to have_content("Something went wrong")
+  end
 end
