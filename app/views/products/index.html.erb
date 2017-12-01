@@ -1,0 +1,15 @@
+<% content_for :page_header, "All Crafts" %>
+
+<% if current_user && current_user.admin? %>
+  <h4><%= link_to "Add a Craft", new_product_path %></h4>
+<% end %>
+
+<% if @products.any? %>
+  <% @products.each do |product| %>
+    <div class="product">
+      <h3><%= link_to product.name, product_path(product) %></h3>
+    </div>
+  <% end %>
+<% else %>
+  <h3>There are no products saved.</h3>
+<% end %>

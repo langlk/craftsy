@@ -1,0 +1,15 @@
+<% content_for :page_header, @product.name %>
+
+<h3>Price: $<%= @product.price %></h3>
+
+<p><%= @product.description %></p>
+
+<% if current_user && current_user.admin? %>
+  <h5 class="product-options">
+    <%= link_to "Edit Craft", edit_product_path(@product) %> |
+    <%= link_to "Delete Craft", product_path(@product), data: {
+        confirm: "This will permanently delete this craft. Are you sure?",
+        method: "delete"
+        } %>
+  </h5>
+<% end %>
