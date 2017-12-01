@@ -1,1 +1,24 @@
-<h1>Welcome!</h1>
+<% content_for :page_header, "Welcome to Craftsy!" %>
+
+<div class="splash">
+  <div class="splash-overlay">
+    <p class="about">
+      Find unique crafts from around the world.
+    </p>
+    <p class="about">
+      All products handmade by independent artists.
+    </p>
+    <p class="about">
+      Leave reviews of creations you love.
+    </p>
+  </div>
+</div>
+
+<div class="featured">
+  <h2 class="sub-header"><%= link_to "Crafts", products_path %></h2>
+</div>
+
+
+<div class="contact">
+  <h2 class="sub-header">Contact</h2>
+</div>

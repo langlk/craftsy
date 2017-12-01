@@ -1,2 +1,53 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash|Lora');
+
+body {
+  font-family: 'Lora', sans-serif;
+  font-size: 16px;
+}
+
+h1, .navbar-header, .sub-header {
+  font-family: "Berkshire Swash", serif;
+}
+
+.navbar {
+  font-size: 14px;
+}
+
+.navbar-header {
+  font-size: 16px;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.sub-header {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: .2em;
+}
+
+.splash {
+  background-image: url('/images/art-supplies.jpeg');
+  background-position: center;
+  background-size: cover;
+  border: 15px solid rgba(56, 86, 121, 0.2);
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.splash-overlay {
+  background-color: rgba(230, 241, 255, 0.81);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.about {
+  text-align: center;
+  font-size: 18px;
+}
