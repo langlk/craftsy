@@ -23,10 +23,10 @@ To install on your own machine, follow the instructions below:
 * Open ```localhost:3000``` in your web browser
 * **To give an account admin privileges:**
   * In the project root run ```rails c```
-  * In the rails console, run:
-  ```ruby
-  User.find_by(email: "[account email address]").update(admin: true)
-  ```
+  * Then run:
+    ```ruby
+    User.find_by(email: "[account email address]").update(admin: true)
+    ```
   * The account will now have admin access to the app.
 
 ## Specifications
