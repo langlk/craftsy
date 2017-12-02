@@ -23,6 +23,11 @@ h1, .navbar-header, .sub-header {
   font-size: 16px;
 }
 
+#username a:hover {
+  color: #9d9d9d;
+  cursor: default;
+}
+
 .page-header {
   text-align: center;
 }
