@@ -10,15 +10,7 @@
         <div class="review panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title"><%= review.user.name %></h4>
-            <span><%= review.rating %> of 5</span>
-          </div>
-
-          <div class="panel-body">
-            <p><%= review.comments %></p>
-          </div>
-
-          <% if authorize_edit?(review) | authorize_delete?(review) %>
-            <div class="panel-footer">
+            <h4 class="review-options panel-title">
               <% if authorize_edit?(review) %>
                 <%= link_to "Edit", edit_product_review_path(@product, review) %> |
               <% end %>
@@ -28,7 +20,16 @@
                     method: "delete"
                     } %>
               <% end %>
-            </div>
+            </h4>
+          </div>
+
+          <div class="panel-body">
+            <p><%= review.comments %></p>
+            <h5 class="rating"><%= review.rating %> of 5 Stars</h5>
+          </div>
+
+          <% if authorize_edit?(review) | authorize_delete?(review) %>
+
           <% end %>
         <% end %>
       </div>

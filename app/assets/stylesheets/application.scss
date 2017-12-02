@@ -111,3 +111,12 @@ h1, .navbar-header, .sub-header {
   width: 20%;
   min-width: 300px;
 }
+
+.review .panel-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  color: #999;
+}
