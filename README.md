@@ -1,4 +1,4 @@
-# Specialty Food Site
+# Craftsy
 
 ### _Epicodus Project in Ruby on Rails, December 1, 2017_
 
