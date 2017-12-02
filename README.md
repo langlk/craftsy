@@ -15,7 +15,6 @@ To install on your own machine, follow the instructions below:
 * Clone this repository.
 * Run the following commands in the project root directory:
   ```
-  cd flickr_clone
   bundle update
   rake db:setup
   rails serve
