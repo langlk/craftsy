@@ -35,6 +35,7 @@ h1, .navbar-header, .sub-header {
 .sub-header {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: .2em;
+  margin-top: 1em;
 }
 
 .splash {
@@ -110,6 +111,10 @@ h1, .navbar-header, .sub-header {
   margin: 1.5em;
   width: 20%;
   min-width: 300px;
+}
+
+.price {
+  font-size: 20px;
 }
 
 .review .panel-heading {

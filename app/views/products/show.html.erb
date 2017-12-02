@@ -6,7 +6,7 @@
   </div>
   <div class="product-details">
     <p class="description"><%= @product.description %></p>
-    <h3>Price: $<%= @product.price %></h3>
+    <h4 class="price">Price: $<%= @product.price %></h4>
     <% if current_user && current_user.admin? %>
       <h5 class="product-options">
         <%= link_to "Edit Craft", edit_product_path(@product) %> |
