@@ -4,7 +4,7 @@
   <% @reviews.each do |review| %>
     <% if review.id %>
       <% if review == @review %>
-        <h4>Edit Review</h4>
+        <h4 class="sub-header">Edit Review</h4>
         <%= render 'form' %>
       <% else %>
         <div class="review panel panel-default">

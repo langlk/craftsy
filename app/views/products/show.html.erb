@@ -19,11 +19,9 @@
   </div>
 </div>
 
-
-
 <%= render 'reviews/index' %>
 
 <% if current_user && @review.id == nil %>
-  <h4>Add a Review</h4>
+  <h2 class="sub-header">Add a Review</h2>
   <%= render 'reviews/form' %>
 <% end %>

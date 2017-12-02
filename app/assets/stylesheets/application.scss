@@ -93,6 +93,7 @@ h1, .navbar-header, .sub-header {
 
 .product-show {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
 }
@@ -103,4 +104,10 @@ h1, .navbar-header, .sub-header {
 
 .product-image img {
   height: 100%;
+}
+
+.product-details {
+  margin: 1.5em;
+  width: 20%;
+  min-width: 300px;
 }
