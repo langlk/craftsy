@@ -13,7 +13,7 @@ describe "the review management path" do
 
   it "allows all authenticated users to leave reviews on a product" do
     visit product_path(@product)
-    fill_in "Rating", with: 3
+    fill_in "review_rating", with: 3
     fill_in "Comments", with: "This is a new test review!"
     click_button "Save"
     expect(page).to have_content("This is a new test review!")
