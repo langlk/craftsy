@@ -17,7 +17,7 @@ To install on your own machine, follow the instructions below:
   ```
   bundle update
   rake db:setup
-  rails serve
+  rails s
   ```
 * Open ```localhost:3000``` in your web browser
 * **To give an account admin privileges:**
